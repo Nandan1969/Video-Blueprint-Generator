@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Blueprint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=4">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    <div class="container">
+        
+        <header>
+            <h1>Video <span class="highlight">Blueprint</span></h1>
+            <p>Convert any story or script into a structured video creation plan instantly.</p>
+            <button id="historyToggleBtn" class="history-toggle">View Previous Blueprints</button>
+        </header>
+
+        <!-- History Sidebar -->
+        <div id="historySidebar" class="history-sidebar hidden">
+            <div class="sidebar-header">
+                <h2>History</h2>
+                <button id="closeHistoryBtn" class="close-btn">&times;</button>
+            </div>
+            <div id="historyList" class="history-list">
+                <!-- History items injected here -->
+            </div>
+        </div>
+
+        <main>
+            <section class="glass-panel form-section">
+                <form id="blueprintForm">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="theme">Video Theme</label>
+                            <select id="theme" required>
+                                <option value="" disabled selected>Select a theme...</option>
+                                <option value="Motivation">Motivation</option>
+                                <option value="Mythology">Mythology</option>
+                                <option value="Education">Education</option>
+                                <option value="Shorts">Shorts / Entertainment</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="stylePreset">Style Preset</label>
+                            <select id="stylePreset" required>
+                                <option value="Cinematic">Cinematic</option>
+                                <option value="Cartoon">Cartoon</option>
+                                <option value="Realistic">Realistic</option>
+                                <option value="Anime">Anime</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="platform">Platform</label>
+                            <select id="platform" required>
+                                <option value="YouTube (16:9)">YouTube (16:9)</option>
+                                <option value="Instagram Reels (9:16)">Instagram Reels (9:16)</option>
+                                <option value="TikTok (9:16)">TikTok (9:16)</option>
+                                <option value="Shorts (9:16)">YouTube Shorts (9:16)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="story">Story or Script</label>
+                        <textarea id="story" rows="6" placeholder="Paste your story or script here..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="generateBtn">
+                        <span class="btn-text">Generate Blueprint</span>
+                        <div class="loading-state hidden">
+                            <div class="logo-flipper" id="logoFlipper">🎥</div>
+                            <span class="typewriter">Generating scenes...</span>
+                        </div>
+                    </button>
+                    <div id="errorBox" class="error-msg hidden"></div>
+                </form>
+            </section>
+
+            <section class="glass-panel result-section hidden" id="resultSection">
+                <h2>Your Blueprint</h2>
+                
+                <div class="blueprint-grid">
+                    <div class="blueprint-card">
+                        <h3>Total Time</h3>
+                        <p id="bpTime">Loading...</p>
+                    </div>
+
+                    <div class="blueprint-card span-full">
+                        <h3>Publishing Format</h3>
+                        <p id="bpFormat">Loading...</p>
+                    </div>
+
+                    <div class="blueprint-card">
+                        <h3>Visual Direction</h3>
+                        <p id="bpVisual">Loading...</p>
+                    </div>
+
+                    <div class="blueprint-card">
+                        <h3>Narration Tone</h3>
+                        <p id="bpNarration">Loading...</p>
+                    </div>
+
+                    <div class="blueprint-card span-full">
+                        <h3>Scene Breakdown & Storyboard</h3>
+                        <div id="bpScenes" class="scene-cards-container"></div>
+                    </div>
+                </div>
+
+                <div id="motivationalQuote" class="motivational-quote hidden"></div>
+
+                <div class="action-buttons">
+                    <button id="viewPromptBtn" class="secondary-btn">View AI Prompt</button>
+                    <button id="saveBtn" class="secondary-btn">Download PDF</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- AI Prompt Modal -->
+    <div id="promptModal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <span id="closePromptBtn" class="close-btn">&times;</span>
+            <h2>AI Prompt Used</h2>
+            <pre id="promptText"></pre>
+        </div>
+    </div>
+
+    <script src="/app.js?v=4"></script>
+</body>
+</html>
