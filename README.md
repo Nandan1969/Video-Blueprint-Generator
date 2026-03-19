@@ -2,7 +2,7 @@
 
 A web application that instantly converts any story or script into a structured video creation plan using Google's Gemini AI.
 
-##✨ Features
+## Features
 - **🎨Premium UI:** Modern design with glassmorphism, glowing mesh backgrounds, and smooth animations.
 - **🧠AI-Powered Insights:** Uses Gemini 2.5 Flash to generate intelligent blueprints.
 - **📊Structured Output:** Instantly breaks down stories into Scene by Scene visualization, Visual Direction, Narration Tone, and Publishing Format.
